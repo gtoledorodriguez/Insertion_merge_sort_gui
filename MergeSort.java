@@ -1,5 +1,8 @@
 public class MergeSort{
-  public int[] sort(int[] arr){
+  public int[] sort(int[] arr){//This will sort the left and right arrays
+
+  }
+  public int[] merge(){//This will merge the left and right arrays
 
   }
 
