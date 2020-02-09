@@ -2,5 +2,5 @@
 Team Name:
 
 Members:
-Gladys Toledo-Rodriguez
-Grace Arnold
+- Gladys Toledo-Rodriguez
+- Grace Arnold
