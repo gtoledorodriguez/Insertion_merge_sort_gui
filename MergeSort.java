@@ -63,6 +63,13 @@ public class MergeSort{
       }
     }
 
+    System.out.println("\n Merging Array:");
+    System.out.print("[");
+    for(int k=0;k<b.length;k++){
+      System.out.print(" " + b[k] + " ");
+    }
+    System.out.print("]");
+
     return b;
   }
 
@@ -84,7 +91,7 @@ public class MergeSort{
     int[] sortedR = ms.sort(ranNums); //sorts the random array
 
     //Prints out the unsorted array
-    System.out.println("Unsorted Array:");
+    System.out.println("\n Unsorted Array:");
     System.out.print("[");
     for(int i=0;i<ranNums.length;i++){
       System.out.print(" " + ranNums[i] + " ");
@@ -93,7 +100,7 @@ public class MergeSort{
 
 
     //Prints out the sorted array
-    System.out.println("Sorted Array:");
+    System.out.println("\n Sorted Array:");
     System.out.print("[");
     for(int i=0;i<sortedR.length;i++){
       System.out.print(" " + sortedR[i] + " ");
