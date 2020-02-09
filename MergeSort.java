@@ -1,6 +1,6 @@
 public class MergeSort{
   public int[] sort(int[] arr){//This will sort the left and right arrays
-    int[] sorted = []; //Return our final answer, after merging and sorting the left and right arrays
+    //int[] sorted = []; //Return our final answer, after merging and sorting the left and right arrays
     int arrL = arr.length; //gives the length of the user given arr
 
     if (arrL == 1) { //If arrL is 1, there is only one in in the array so return itself
@@ -19,11 +19,11 @@ public class MergeSort{
         rightArr[i]=arr[i];
       }
 
-      sort(leftArr);
-      sort(rightArr);
+      int[] ls = sort(leftArr);
+      int[] rs = sort(rightArr);
     }
 
-    return sorted;
+    return merge(ls, rs);
   }
   public int[] merge(){//This will merge the left and right arrays
 
