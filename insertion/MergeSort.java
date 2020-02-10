@@ -1,3 +1,4 @@
+package insertion;
 import java.util.Random;
 
 public class MergeSort{
@@ -84,9 +85,9 @@ public class MergeSort{
 
     //Creates a defined set of numbers to sort
     MergeSort ms = new MergeSort();
-    int [] nums = {1,3,5,8,2,4,6,7};
+    //int [] nums = {1,3,5,8,2,4,6,7};
 
-    int[] sorted = ms.sort(nums); //sorts the defined Set
+    //int[] sorted = ms.sort(nums); //sorts the defined Set
 
     int[] sortedR = ms.sort(ranNums); //sorts the random array
 
