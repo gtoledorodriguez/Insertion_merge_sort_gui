@@ -1,3 +1,4 @@
+package insertion;
 import java.util.Random;
 
 public class MergeSort{
@@ -63,6 +64,13 @@ public class MergeSort{
       }
     }
 
+    System.out.println("\n Merging Array:");
+    System.out.print("[");
+    for(int k=0;k<b.length;k++){
+      System.out.print(" " + b[k] + " ");
+    }
+    System.out.print("]");
+
     return b;
   }
 
@@ -77,14 +85,14 @@ public class MergeSort{
 
     //Creates a defined set of numbers to sort
     MergeSort ms = new MergeSort();
-    int [] nums = {1,3,5,8,2,4,6,7};
+    //int [] nums = {1,3,5,8,2,4,6,7};
 
-    int[] sorted = ms.sort(nums); //sorts the defined Set
+    //int[] sorted = ms.sort(nums); //sorts the defined Set
 
     int[] sortedR = ms.sort(ranNums); //sorts the random array
 
     //Prints out the unsorted array
-    System.out.println("Unsorted Array:");
+    System.out.println("\n Unsorted Array:");
     System.out.print("[");
     for(int i=0;i<ranNums.length;i++){
       System.out.print(" " + ranNums[i] + " ");
@@ -93,7 +101,7 @@ public class MergeSort{
 
 
     //Prints out the sorted array
-    System.out.println("Sorted Array:");
+    System.out.println("\n Sorted Array:");
     System.out.print("[");
     for(int i=0;i<sortedR.length;i++){
       System.out.print(" " + sortedR[i] + " ");

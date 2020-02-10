@@ -63,6 +63,13 @@ public class SortGUI extends JFrame implements ActionListener {
 		messageToUser.setForeground(Color.white);
 		messageToUser.setBackground(darkGray);
 		messageToUser.setBounds(57, 440, 600, 30);
+		
+		JButton btnMerge = new JButton();
+		btnMerge.setText("Merge");
+		btnMerge.setForeground(new Color(139, 138, 140));
+		btnMerge.setBackground(new Color(247, 204, 187));
+		btnMerge.setBounds(370, 525, 100, 30);
+		panel.add(btnMerge);
 		pack();
 	}
 	private void initDisplay() {
