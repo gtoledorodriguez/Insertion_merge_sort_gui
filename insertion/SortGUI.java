@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
 public class SortGUI extends JFrame implements ActionListener {
 	private static final int DEFAULT_HEIGHT = 584;
 	// Width of the game frame.
@@ -62,14 +63,8 @@ public class SortGUI extends JFrame implements ActionListener {
 		messageToUser.setOpaque(true);
 		messageToUser.setForeground(Color.white);
 		messageToUser.setBackground(darkGray);
-		messageToUser.setBounds(57, 440, 600, 30);
+		messageToUser.setBounds(56, 424, 600, 30);
 		
-		JButton btnMerge = new JButton();
-		btnMerge.setText("Merge");
-		btnMerge.setForeground(new Color(139, 138, 140));
-		btnMerge.setBackground(new Color(247, 204, 187));
-		btnMerge.setBounds(370, 525, 100, 30);
-		panel.add(btnMerge);
 		pack();
 	}
 	private void initDisplay() {
@@ -87,13 +82,61 @@ public class SortGUI extends JFrame implements ActionListener {
 		Color purple = new Color(221, 206, 239);
 		Color orange = new Color(247, 230, 197);
 		
+		JButton btnReset = new JButton("Reset");
+		btnReset.setVisible(false);
+		btnReset.setBounds(314, 544, 85, 21);
+		btnReset.setForeground(new Color(139, 138, 140));
+		btnReset.setBackground(new Color(247, 204, 187));
+		panel.add(btnReset);
+		
+		JButton btnStep = new JButton();
+		btnStep.setVisible(false);
+		btnStep.setText("Step");
+		btnStep.setForeground(new Color(139, 138, 140));
+		btnStep.setBackground(new Color(247, 204, 187));
+		btnStep.setBounds(260, 504, 65, 30);
+		panel.add(btnStep);
+		
+		JButton btnGo = new JButton();
+		btnGo.setVisible(false);
+		btnGo.setText("Go");
+		btnGo.setForeground(new Color(139, 138, 140));
+		btnGo.setBackground(new Color(247, 204, 187));
+		btnGo.setBounds(392, 504, 53, 30);
+		panel.add(btnGo);
+		
 		insertion = new JButton();
+		insertion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnStep.setVisible(true);
+				btnGo.setVisible(true);
+				btnReset.setVisible(true);
+			}
+		});
 		insertion.setText("Insertion");
 		panel.add(insertion);
-		insertion.setBounds(240, 525, 100, 30);
+		insertion.setBounds(239, 464, 100, 30);
 		insertion.setForeground(darkGray);
 		insertion.setBackground(red);
 		insertion.addActionListener(this);
+		
+		
+		JButton btnMerge = new JButton();
+		btnMerge.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnStep.setVisible(true);
+				btnGo.setVisible(true);
+				btnReset.setVisible(true);
+			}
+		});
+		btnMerge.setText("Merge");
+		btnMerge.setForeground(new Color(139, 138, 140));
+		btnMerge.setBackground(new Color(247, 204, 187));
+		btnMerge.setBounds(366, 464, 100, 30);
+		panel.add(btnMerge);
+		
 		
 		getContentPane().add(panel);
 		getRootPane().setDefaultButton(insertion);
