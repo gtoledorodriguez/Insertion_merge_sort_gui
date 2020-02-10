@@ -145,7 +145,7 @@ public class SortGUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent evt) {
 		String command = evt.getActionCommand();
 		if (command.equals("Insertion")) {
-			//inProgress = session.insertion(inProgress);
+			inProgress = session.insertion(inProgress);
 			repaint();
 		}
 	}
