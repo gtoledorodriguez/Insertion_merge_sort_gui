@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
+import javax.swing.JTextArea;
 public class SortGUI extends JFrame implements ActionListener {
 	private static final int DEFAULT_HEIGHT = 584;
 	// Width of the game frame.
@@ -59,6 +60,7 @@ public class SortGUI extends JFrame implements ActionListener {
 	}
 	Color darkGray = new Color(139, 138, 140);
 	Color lightGray = new Color(186, 186, 186);
+	private JTextArea numbers2;
 	public void repaint() {
 		messageToUser = new JLabel(session.getMessage());
 		panel.add(messageToUser);
@@ -72,6 +74,11 @@ public class SortGUI extends JFrame implements ActionListener {
 		panel.add(numbers);
 		numbers.setOpaque(true);
 		numbers.setBounds(100, 100, 100, 100);
+		
+		numbers2 = new JTextArea();
+		numbers2.setEditable(false);
+		numbers2.setBounds(260, 100, 240, 94);
+		panel.add(numbers2);
 		
 		pack();
 	}
@@ -154,16 +161,17 @@ public class SortGUI extends JFrame implements ActionListener {
 		String command = evt.getActionCommand();
 		if (command.equals("Insertion")) {
 			ArrayList<int[]> sortedSeq = session.insertion();
+			String s = "";
 			for (int i = 0; i < sortedSeq.size(); i++) {
 				int[] n = sortedSeq.get(i);
-				String s = "";
-				for (int j = 0; j < 5; j++) {
+				
+				for (int j = 0; j < sortedSeq.get(i).length; j++) {
 					s = s + String.valueOf(n[j]);
 				}
-				numbers.setText(s);
-				TimeUnit.SECONDS.sleep(2);
-				}
+				s = s +"\n";
+				numbers2.setText(s);
 			}
+			
 			repaint();
 		}
 	}
