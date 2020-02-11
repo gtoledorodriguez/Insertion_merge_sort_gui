@@ -1,14 +1,24 @@
 package insertion;
 import java.util.Random;
+import java.util.ArrayList;
 public class Session implements Values {
 	private String message;
+	private String numbers;
 	private String getInsSorted;
 	public Session() {
 		message = "Welcome!";
+		numbers = "";
 		getInsSorted = "";
 	}
 	public String getMessage() {
 		return message;
+	}
+	public String getNumbers() {
+		randomNumbers();
+		for (int i = 0; i < SIZE; i++) {
+			numbers += String.valueOf(values[i]);
+		}
+		return numbers;
 	}
 	public int[] randomNumbers() {
 		Random rand = new Random();
@@ -17,8 +27,8 @@ public class Session implements Values {
 	    }
 	    return values;
 	}
-	public boolean insertion(boolean inProgress) {
-		insertSort.insertionSort();
-		return inProgress;
+	public ArrayList insertion() {
+		ArrayList sortedSeq = insertSort.insertionSort();
+		return sortedSeq;
 	}
 }

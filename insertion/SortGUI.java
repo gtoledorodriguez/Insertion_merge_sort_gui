@@ -1,4 +1,6 @@
 package insertion;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 import java.awt.Point;
 import java.awt.Graphics;
 import java.awt.Dimension;
@@ -35,6 +37,7 @@ public class SortGUI extends JFrame implements ActionListener {
 	private JButton merge;
 	// Output messages to the user
 	private JLabel messageToUser;
+	private JLabel numbers;
 	private Session session;
 	private String output;
 	private boolean inProgress;
@@ -64,6 +67,11 @@ public class SortGUI extends JFrame implements ActionListener {
 		messageToUser.setForeground(Color.white);
 		messageToUser.setBackground(darkGray);
 		messageToUser.setBounds(56, 424, 600, 30);
+		
+		numbers = new JLabel(session.getNumbers());
+		panel.add(numbers);
+		numbers.setOpaque(true);
+		numbers.setBounds(100, 100, 100, 100);
 		
 		pack();
 	}
@@ -145,8 +153,17 @@ public class SortGUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent evt) {
 		String command = evt.getActionCommand();
 		if (command.equals("Insertion")) {
-			session.randomNumbers();
-			inProgress = session.insertion(inProgress);
+			ArrayList<int[]> sortedSeq = session.insertion();
+			for (int i = 0; i < sortedSeq.size(); i++) {
+				int[] n = sortedSeq.get(i);
+				String s = "";
+				for (int j = 0; j < 5; j++) {
+					s = s + String.valueOf(n[j]);
+				}
+				numbers.setText(s);
+				TimeUnit.SECONDS.sleep(2);
+				}
+			}
 			repaint();
 		}
 	}
