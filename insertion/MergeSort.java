@@ -1,5 +1,6 @@
 package insertion;
 import java.util.Random;
+import insertion.Session;
 
 public class MergeSort{
   public int[] sort(int[] arr){//This will sort the left and right arrays
@@ -30,18 +31,19 @@ public class MergeSort{
         j++;
       }
 
-      /*
+      /**/
       //Debugging what is in left arr and what is in rightArr
-      System.out.println("LeftArr: ");
+      System.out.print("\nLeft Array: \n[");
       for(int i = 0; i<leftArr.length; i++){
-        System.out.println(leftArr[i]);
+        System.out.print(" "+ leftArr[i] + " ");
       }
-      System.out.println("RightArr: ");
+      System.out.println("]");
+      
+      System.out.print("Right Array: \n[");
       for(int i = 0; i<rightArr.length; i++){
-        System.out.println(rightArr[i]);
+        System.out.print(" "+ rightArr[i]+ " ");
       }
-      */
-
+      System.out.println("]");
 
       ls = sort(leftArr);//recursively calls sort on the left arr
       rs = sort(rightArr);//recursively calls sort on the right arr
@@ -64,48 +66,53 @@ public class MergeSort{
       }
     }
 
-    System.out.println("\n Merging Array:");
+    System.out.println("\nMerging Left and Right Arrays in Sorted Order:");
     System.out.print("[");
     for(int k=0;k<b.length;k++){
       System.out.print(" " + b[k] + " ");
     }
-    System.out.println("]");
+    System.out.println("]\n");
 
     return b;
   }
 
   public static void main(String[] args){
+	  Random rand = new Random();
+	  MergeSort ms = new MergeSort();
+	  Session s = new Session();
+	  int[] ranNums;
     //Creates random numbers
-    Random rand = new Random();
+	/* Will now call the random method in Session.java to get the array of random numbers
     int n = 10;
-    int[] ranNums = new int[n];
+    ranNums = new int[n];
     for(int i = 0; i<n; i++){
       ranNums[i] = rand.nextInt(n);
     }
-
+    
+    */
     //Creates a defined set of numbers to sort
-    MergeSort ms = new MergeSort();
     //int [] nums = {1,3,5,8,2,4,6,7};
-
     //int[] sorted = ms.sort(nums); //sorts the defined Set
-
+    
+    ranNums = s.randomNumbers();
+    
     //Prints out the unsorted array
-    System.out.println("\n Unsorted Array:");
+    System.out.println("Unsorted Array:");
     System.out.print("[");
     for(int i=0;i<ranNums.length;i++){
       System.out.print(" " + ranNums[i] + " ");
     }
-    System.out.println("]");
+    System.out.println("]\n");
 
     int[] sortedR = ms.sort(ranNums); //sorts the random array
 
     //Prints out the sorted array
-    System.out.println("\n Sorted Array:");
+    System.out.println("\nSorted Array:");
     System.out.print("[");
     for(int i=0;i<sortedR.length;i++){
       System.out.print(" " + sortedR[i] + " ");
     }
-    System.out.print("]");
+    System.out.print("]\n");
 
 
   }
