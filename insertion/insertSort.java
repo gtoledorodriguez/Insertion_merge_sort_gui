@@ -16,7 +16,5 @@ public class insertSort extends insertElement{
 	}
 	public static void main(String []args) {
 		insertSort.insertionSort();
-		for (int i = 0; i < SIZE; i++) 
-			System.out.println(values[i]);
 	}
 }

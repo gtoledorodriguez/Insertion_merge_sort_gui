@@ -1,7 +1,7 @@
 package insertion;
 
 public class insertElement implements Values{
-	static void insertElement(int startIndex, int endIndex)
+	static int[] insertElement(int startIndex, int endIndex)
 	// Upon completion, values[0]..values[endIndex] are sorted.
 	{
 	 boolean finished = false;
@@ -16,6 +16,7 @@ public class insertElement implements Values{
 		 else
 			 finished = true;
 	 }
+	return values;
 	}
 	static void swap(int first, int second) {
 		int temp = values[first];
