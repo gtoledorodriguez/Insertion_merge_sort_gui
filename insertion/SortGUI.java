@@ -23,6 +23,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 public class SortGUI extends JFrame implements ActionListener {
 	private static final int DEFAULT_HEIGHT = 584;
 	// Width of the game frame.
@@ -39,6 +40,8 @@ public class SortGUI extends JFrame implements ActionListener {
 	// Output messages to the user
 	private JLabel messageToUser;
 	private JLabel numbers;
+	private JTextArea numbers2;
+	private JScrollPane numbers3;
 	private Session session;
 	private String output;
 	private boolean inProgress;
@@ -60,7 +63,7 @@ public class SortGUI extends JFrame implements ActionListener {
 	}
 	Color darkGray = new Color(139, 138, 140);
 	Color lightGray = new Color(186, 186, 186);
-	private JTextArea numbers2;
+	
 	public void repaint() {
 		messageToUser = new JLabel(session.getMessage());
 		panel.add(messageToUser);
@@ -71,14 +74,24 @@ public class SortGUI extends JFrame implements ActionListener {
 		messageToUser.setBounds(56, 424, 600, 30);
 		
 		numbers = new JLabel(session.getNumbers());
+		numbers.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		panel.add(numbers);
 		numbers.setOpaque(true);
-		numbers.setBounds(100, 100, 100, 100);
+		numbers.setBounds(54, 41, 667, 46);
 		
+		JLabel lblUnsorted = new JLabel("Unsorted: ");
+		lblUnsorted.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblUnsorted.setBounds(54, 10, 100, 41);
+		panel.add(lblUnsorted);
 		numbers2 = new JTextArea();
-		numbers2.setEditable(false);
-		numbers2.setBounds(260, 100, 240, 94);
+		numbers2.setBounds(56, 99, 600, 281);
 		panel.add(numbers2);
+		numbers2.setEditable(false);
+		
+		numbers3 = new JScrollPane(numbers2);
+		numbers3.setBounds(78, 99, 557, 281);
+		panel.add(numbers3);
+		
 		
 		pack();
 	}
@@ -172,7 +185,8 @@ public class SortGUI extends JFrame implements ActionListener {
 				numbers2.setText(s);
 			}
 			
-			repaint();
+			
 		}
+		repaint();
 	}
 }
