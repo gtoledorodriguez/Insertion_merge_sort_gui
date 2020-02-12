@@ -129,6 +129,7 @@ public class MergeSort implements Values{
     
     ranNums = s.randomNumbers();
     
+    /*Shows what the unsorted array is and will add to arrayList
     //Prints out the unsorted array
     String us = "";
     System.out.println("Unsorted Array:");
@@ -142,9 +143,13 @@ public class MergeSort implements Values{
     System.out.println("]\n");
     us = us + "]";
     ms.msAL.add(us);
+    */
+    
     
     int[] sortedR = ms.sort(ranNums); //sorts the random array
     
+    
+    /*Shows what the sorted array is and will add to arrayList
     String ss = "";
     //Prints out the sorted array
     System.out.println("\nSorted Array:");
@@ -158,14 +163,24 @@ public class MergeSort implements Values{
     System.out.print("]\n");
     ss = ss + "]";
     ms.msAL.add(ss);
+    */
     
-    ArrayList msAL2 = ms.getMerge();
+    
+    /* Testing that guiSort works correctly
+    ArrayList msAL2 = MergeSort.guiSort();
     System.out.println("\nArray List");
-    for(int i = 0; i<ms.msAL.size();i++) {
+    for(int i = 0; i<msAL2.size();i++) {
+    	System.out.println(msAL2.get(i));
+    }
+    */
+    
+    Session session = new Session();
+    ArrayList msAL2 = session.merge();
+    System.out.println("\nArray List");
+    for(int i = 0; i<msAL2.size();i++) {
     	System.out.println(msAL2.get(i));
     }
     
     
-
   }
 }

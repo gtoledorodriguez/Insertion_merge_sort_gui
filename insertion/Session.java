@@ -1,6 +1,7 @@
 package insertion;
 import java.util.Random;
 import java.util.ArrayList;
+import insertion.MergeSort;
 public class Session implements Values {
 	private String message;
 	private String numbers;
@@ -32,7 +33,13 @@ public class Session implements Values {
 		return sortedSeq;
 	}
 	public ArrayList merge() {
-		ArrayList sortedSeq = MergeSort.guiSort();
-		return sortedSeq;
+		ArrayList msAL2 = MergeSort.guiSort();
+		
+	    System.out.println("\nArray List");
+	    for(int i = 0; i<msAL2.size();i++) {
+	    	System.out.println(msAL2.get(i));
+	    }
+	    
+	    return msAL2;
 	}
 }
