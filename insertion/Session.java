@@ -31,4 +31,8 @@ public class Session implements Values {
 		ArrayList sortedSeq = insertSort.insertionSort();
 		return sortedSeq;
 	}
+	public ArrayList merge() {
+		ArrayList sortedSeq = MergeSort.guiSort();
+		return sortedSeq;
+	}
 }

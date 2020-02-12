@@ -45,6 +45,7 @@ public class SortGUI extends JFrame implements ActionListener {
 	private Session session;
 	private String output;
 	private boolean inProgress;
+	public int[] rnumArray;
 	public SortGUI(Session thisSession) {
 		session = thisSession;
 		output = session.getMessage();
@@ -151,6 +152,11 @@ public class SortGUI extends JFrame implements ActionListener {
 		
 		
 		JButton btnMerge = new JButton();
+		btnMerge.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArrayList sortedSeq = session.merge();
+			}
+		});
 		btnMerge.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
