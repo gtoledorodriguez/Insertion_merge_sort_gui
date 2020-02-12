@@ -1,14 +1,23 @@
+/**
+ * 
+ */
 package insertion;
-
-public class InsertionSort {
-	public static void main(String []args) {
-		int[] array = {1, 2, 3, 1, 2, 3, 5, 3, 1};
-		int l = array.length;
-		int key;
-		for (int i = 2; i < l; i--) {
-			key = array[i];
-			//Insert array[i] into the sorted sequence array[1.. i -1]
-			
-		}
+import java.util.ArrayList;
+/**
+ * @author grace
+ *
+ */
+public class InsertionSort extends insertElement{
+	static ArrayList<int[]> insertionSort()
+	// Sorts the values array using the insertion sort algorithm.
+	{
+	ArrayList<int[]> sortedSeq = new ArrayList<int[]>();
+	int[] n = new int[SIZE];
+	 for (int count = 1; count < SIZE; count++) {
+		 n = insertElement.insertElement(0, count);
+	 	sortedSeq.add(n);
+	 }
+	 return sortedSeq;
 	}
+	
 }
