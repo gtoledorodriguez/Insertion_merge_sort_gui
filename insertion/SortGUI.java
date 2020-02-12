@@ -24,6 +24,12 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+/**
+ * 
+ * @author grace
+ * @author gladys
+ *
+ */
 public class SortGUI extends JFrame implements ActionListener {
 	private static final int DEFAULT_HEIGHT = 584;
 	// Width of the game frame.

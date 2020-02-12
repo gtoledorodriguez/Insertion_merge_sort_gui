@@ -2,6 +2,12 @@ package insertion;
 import java.util.Random;
 import java.util.ArrayList;
 import insertion.MergeSort;
+/**
+ * 
+ * @author grace
+ * @author gladys
+ *
+ */
 public class Session implements Values {
 	private String message;
 	private String numbers;
