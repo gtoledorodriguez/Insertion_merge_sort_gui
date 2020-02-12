@@ -3,6 +3,7 @@ import java.util.Random;
 import insertion.Session;
 
 public class MergeSort{
+	Arraylist msAL;
   public int[] sort(int[] arr){//This will sort the left and right arrays
     int arrL = arr.length; //gives the length of the user given arr
     int[] ls;
