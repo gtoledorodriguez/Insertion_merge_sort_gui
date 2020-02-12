@@ -28,8 +28,8 @@ public class Session implements Values {
 	    }
 	    return values;
 	}
-	public ArrayList insertion() {
-		ArrayList sortedSeq = insertSort.insertionSort();
+	public ArrayList<int[]> insertion() {
+		ArrayList<int[]> sortedSeq = InsertionSort.insertionSort();
 		return sortedSeq;
 	}
 	public ArrayList merge() {
