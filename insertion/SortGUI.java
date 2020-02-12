@@ -118,6 +118,12 @@ public class SortGUI extends JFrame implements ActionListener {
 		Color orange = new Color(247, 230, 197);
 		
 		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numbers.setText(session.getNumbers());
+				numbers2.setText("");
+			}
+		});
 		btnReset.setVisible(false);
 		btnReset.setBounds(314, 544, 85, 21);
 		btnReset.setForeground(new Color(139, 138, 140));
@@ -204,9 +210,7 @@ public class SortGUI extends JFrame implements ActionListener {
 				}
 				s = s +"\n";
 				numbers2.setText(s);
-			}
-			
-			
+			}	
 		}
 		repaint();
 	}
