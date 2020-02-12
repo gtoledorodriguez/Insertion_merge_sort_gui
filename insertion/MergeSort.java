@@ -4,7 +4,7 @@ import java.util.Random;
 import insertion.Session;
 
 public class MergeSort implements Values{
-	static ArrayList msAL; //Will make a function that returns an arrayList so we can print it out in the GUI
+	static ArrayList msAL = new ArrayList(); //Will make a function that returns an arrayList so we can print it out in the GUI
 	public static ArrayList guiSort() {
 		MergeSort s = new MergeSort();
 		s.sort(values);
@@ -43,7 +43,7 @@ public class MergeSort implements Values{
       //Debugging what is in left arr and what is in rightArr
       String la = ""; //This will be added to the array list once it's done collecting this array
       //System.out.print("\nLeft Array: \n[");
-      la = la + "\nLeft Array: \n[";
+      la = la + "\n\nLeft Array: \n[";
       
       for(int i = 0; i<leftArr.length; i++){ //adds numbers that make the left array to a String
         //System.out.print(" "+ leftArr[i] + " ");
@@ -51,12 +51,14 @@ public class MergeSort implements Values{
       }
       //System.out.println("]");
       la = la + "]";
+      //System.out.println("check 1");
       msAL.add(la);
-
+      
+      //System.out.println("check 2");
       
       String ra = ""; //This will be added to the array list once it's done collecting this array
       //System.out.print("Right Array: \n[");
-      ra = ra + "Right Array: \n[";
+      ra = ra + "\nRight Array: \n[";
       for(int i = 0; i<rightArr.length; i++){//adds numbers that make the right array to a String
         //System.out.print(" "+ rightArr[i]+ " ");
         ra = ra + " "+ rightArr[i]+ " ";
@@ -87,19 +89,23 @@ public class MergeSort implements Values{
     }
     
     String mlra = "";//This will be added to the array list once it's done collecting this array
+
     //System.out.println("\nMerging Left and Right Arrays in Sorted Order:");
-    mlra = mlra + "\nMerging Left and Right Arrays in Sorted Order:\n";
+    mlra = mlra + "\n\nMerging Left and Right Arrays in Sorted Order:\n";
+    msAL.add(mlra);
+    //System.out.println("Check 1: " + msAL.get(msAL.size()-1));
     //System.out.print("[");
-    mlra = mlra + "[";
+    mlra = "[";
     
     for(int k=0;k<b.length;k++){//adds numbers that make the sorted merge array to a String
       //System.out.print(" " + b[k] + " ");
       mlra = mlra + " " + b[k] + " ";
     }
     //System.out.println("]\n");
-    mlra = mlra + "]";
+    mlra = mlra + "]\n";
     msAL.add(mlra);
-
+    //System.out.println("Check 2: " + msAL.get(msAL.size()-1));
+    
     return b;
   }
   

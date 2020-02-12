@@ -35,10 +35,10 @@ public class Session implements Values {
 	public ArrayList merge() {
 		ArrayList msAL2 = MergeSort.guiSort();
 		
-	    System.out.println("\nArray List");
-	    for(int i = 0; i<msAL2.size();i++) {
-	    	System.out.println(msAL2.get(i));
-	    }
+	    //System.out.println("\nArray List");
+	    //for(int i = 0; i<msAL2.size();i++) {
+	    	//System.out.println(msAL2.get(i));
+	    //}
 	    
 	    return msAL2;
 	}

@@ -154,7 +154,15 @@ public class SortGUI extends JFrame implements ActionListener {
 		JButton btnMerge = new JButton();
 		btnMerge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<int[]> sortedSeq = session.insertion();
+				ArrayList sortedSeq = session.merge();
+				String s = "";
+				for(int i = 0; i<sortedSeq.size(); i++) {
+					s = s + sortedSeq.get(i);
+					//System.out.println("I: " + i);
+				}
+				//System.out.println("sortedSeq.size()-1: " + (sortedSeq.size()-1));
+				s = s + "\n\nSorted Array: \n" + sortedSeq.get(sortedSeq.size()-1);
+				numbers2.setText(s);
 				//ArrayList<String> msAL2 = session.merge();
 			}
 		});
