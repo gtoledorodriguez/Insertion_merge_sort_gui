@@ -1,4 +1,4 @@
-package insertion; 
+package sorting; 
 /**
  * This interface keeps track of the size of the unsorted/array and the values of the unsorted/sorted array
  * @author grace

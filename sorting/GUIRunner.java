@@ -1,4 +1,4 @@
-package insertion;
+package sorting;
 /**
  * 
  * @author grace
