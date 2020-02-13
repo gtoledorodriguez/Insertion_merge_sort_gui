@@ -34,10 +34,6 @@ public class SortGUI extends JFrame implements ActionListener {
 	private static final int DEFAULT_HEIGHT = 584;
 	// Width of the game frame.
 	private static final int DEFAULT_WIDTH = 751;
-	// Width of a card.
-	private static final int CARD_WIDTH = 73;
-	// Height of a card.
-	private static final int CARD_HEIGHT = 97;
 	// P A N e l
 	private JPanel panel;
 	// B U T T O N S
@@ -45,7 +41,7 @@ public class SortGUI extends JFrame implements ActionListener {
 	private JButton merge;
 	// Output messages to the user
 	private JLabel messageToUser;
-	private JLabel numbers;
+	private JTextArea numbers;
 	private JTextArea numbers2;
 	private JScrollPane numbers3;
 	private Session session;
@@ -80,9 +76,10 @@ public class SortGUI extends JFrame implements ActionListener {
 		messageToUser.setBackground(darkGray);
 		messageToUser.setBounds(56, 424, 600, 30);
 		
-		numbers = new JLabel(session.getNumbers());
+		numbers = new JTextArea(session.getNumbers());
 		numbers.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		panel.add(numbers);
+		numbers.setEditable(false);
 		numbers.setOpaque(true);
 		numbers.setBounds(54, 41, 667, 46);
 		
@@ -120,8 +117,26 @@ public class SortGUI extends JFrame implements ActionListener {
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				numbers = new JTextArea();
+				numbers.setBounds(54, 41, 667, 46);
+				panel.add(numbers);
+				numbers.setEditable(false);
+				numbers.setOpaque(true);
 				numbers.setText(session.getNumbers());
-				numbers2.setText("");
+				//numbers.setText(session.getNumbers());
+				numbers.setFont(new Font("Tahoma", Font.PLAIN, 12));
+				
+				
+				
+				
+				numbers2 = new JTextArea();
+				numbers2.setBounds(56, 99, 600, 281);
+				panel.add(numbers2);
+				numbers2.setEditable(false);
+				numbers3 = new JScrollPane(numbers2);
+				numbers3.setBounds(78, 99, 557, 281);
+				panel.add(numbers3);
+				pack();
 			}
 		});
 		btnReset.setVisible(false);

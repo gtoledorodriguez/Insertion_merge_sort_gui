@@ -21,6 +21,7 @@ public class Session implements Values {
 		return message;
 	}
 	public String getNumbers() {
+		numbers = "";
 		randomNumbers();
 		for (int i = 0; i < SIZE; i++) {
 			numbers += String.valueOf(values[i]);
