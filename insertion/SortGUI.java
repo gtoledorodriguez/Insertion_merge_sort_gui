@@ -145,28 +145,10 @@ public class SortGUI extends JFrame implements ActionListener {
 		btnReset.setBackground(new Color(247, 204, 187));
 		panel.add(btnReset);
 		
-		JButton btnStep = new JButton();
-		btnStep.setVisible(false);
-		btnStep.setText("Step");
-		btnStep.setForeground(new Color(139, 138, 140));
-		btnStep.setBackground(new Color(247, 204, 187));
-		btnStep.setBounds(260, 504, 65, 30);
-		panel.add(btnStep);
-		
-		JButton btnGo = new JButton();
-		btnGo.setVisible(false);
-		btnGo.setText("Go");
-		btnGo.setForeground(new Color(139, 138, 140));
-		btnGo.setBackground(new Color(247, 204, 187));
-		btnGo.setBounds(392, 504, 53, 30);
-		panel.add(btnGo);
-		
 		insertion = new JButton();
 		insertion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				btnStep.setVisible(true);
-				btnGo.setVisible(true);
 				btnReset.setVisible(true);
 			}
 		});
@@ -175,8 +157,20 @@ public class SortGUI extends JFrame implements ActionListener {
 		insertion.setBounds(239, 464, 100, 30);
 		insertion.setForeground(darkGray);
 		insertion.setBackground(red);
-		insertion.addActionListener(this);
-		
+		insertion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ArrayList<int[]> sortedSeq = session.insertion();
+				String s = "";
+				for (int i = 0; i < sortedSeq.size(); i++) {
+					int[] n = sortedSeq.get(i);
+					for (int j = 0; j < sortedSeq.get(i).length; j++) {
+						s = s + String.valueOf(n[j]);
+					}
+					s = s +"\n";
+					numbers2.setText(s);
+				}	
+			}
+		});
 		
 		JButton btnMerge = new JButton();
 		btnMerge.addActionListener(new ActionListener() {
@@ -196,8 +190,6 @@ public class SortGUI extends JFrame implements ActionListener {
 		btnMerge.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				btnStep.setVisible(true);
-				btnGo.setVisible(true);
 				btnReset.setVisible(true);
 			}
 		});

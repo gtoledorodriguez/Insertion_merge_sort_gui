@@ -11,11 +11,9 @@ import insertion.MergeSort;
 public class Session implements Values {
 	private String message;
 	private String numbers;
-	private String getInsSorted;
 	public Session() {
-		message = "Welcome!";
+		message = "Welcome! Click Insert or Merge to sort the above numbers.";
 		numbers = "";
-		getInsSorted = "";
 	}
 	public String getMessage() {
 		return message;
@@ -46,7 +44,6 @@ public class Session implements Values {
 	    //for(int i = 0; i<msAL2.size();i++) {
 	    	//System.out.println(msAL2.get(i));
 	    //}
-	    
 	    return msAL2;
 	}
 }

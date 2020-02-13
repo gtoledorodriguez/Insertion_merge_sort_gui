@@ -13,10 +13,12 @@ public class InsertionSort extends insertElement{
 	{
 	ArrayList<int[]> sortedSeq = new ArrayList<int[]>();
 	int[] n = new int[SIZE];
+	int[] f = new int[SIZE];
 	 for (int count = 1; count < SIZE; count++) {
-		 n = insertElement.insertElement(0, count);
-	 	sortedSeq.add(n);
-	 }
+		n = insertElement.insertElement(0, count);
+		f = n.clone();
+	 	sortedSeq.add(f);
+	 }	 	
 	 return sortedSeq;
 	}
 	

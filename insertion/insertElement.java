@@ -25,6 +25,12 @@ public class insertElement implements Values{
 			else
 				finished = true;
 		}
+		/*
+		for (int i = 0; i < SIZE; i++) {
+			System.out.print(values[i]);
+		}
+		System.out.println();
+		*/
 		return values;
 	}
 	/**
