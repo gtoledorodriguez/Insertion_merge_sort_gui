@@ -19,6 +19,7 @@ public class Session implements Values {
 		return message;
 	}
 	public String getNumbers() {
+		message = "Welcome! Click Insert or Merge to sort the above numbers.";
 		numbers = "";
 		randomNumbers();
 		for (int i = 0; i < SIZE; i++) {
@@ -35,6 +36,7 @@ public class Session implements Values {
 	}
 	public ArrayList<int[]> insertion() {
 		ArrayList<int[]> sortedSeq = InsertionSort.insertionSort();
+		message = "Click to reset button to start again.";
 		return sortedSeq;
 	}
 	public ArrayList merge() {
@@ -44,6 +46,7 @@ public class Session implements Values {
 	    //for(int i = 0; i<msAL2.size();i++) {
 	    	//System.out.println(msAL2.get(i));
 	    //}
+		message = "Click the reset button to start again.";
 	    return msAL2;
 	}
 }

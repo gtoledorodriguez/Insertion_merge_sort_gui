@@ -1,25 +1,26 @@
 package insertion;
-import java.util.concurrent.TimeUnit;
+/*import java.util.concurrent.TimeUnit;
 import java.awt.Point;
+import java.awt.Toolkit;
+import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
+import java.net.URL;
+import java.util.List;
+import java.net.URL;
+import javax.swing.ImageIcon;
+*/
 import java.awt.Graphics;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
-import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import java.net.URL;
-import java.util.List;
 import java.util.ArrayList;
-import java.net.URL;
-import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
@@ -30,12 +31,13 @@ import javax.swing.JScrollPane;
  *
  */
 public class SortGUI extends JFrame implements ActionListener {
+	// height of the frame
 	private static final int DEFAULT_HEIGHT = 584;
-	// Width of the game frame.
+	// width of the frame.
 	private static final int DEFAULT_WIDTH = 751;
-	// P A N e l
+	// creating the panel
 	private JPanel panel;
-	// B U T T O N S
+	// These are the buttons (insertion, merge, and reset)
 	private JButton btnInsertion;
 	private JButton btnMerge;
 	private JButton btnReset;
@@ -119,6 +121,7 @@ public class SortGUI extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numbers.setText(session.getNumbers());
 				numbers2.setText("");
+				messageToUser.setText(session.getMessage());
 			}
 		});
 		btnReset.setVisible(false);
@@ -151,6 +154,7 @@ public class SortGUI extends JFrame implements ActionListener {
 					s = s +"\n";
 					numbers2.setText(s);
 				}	
+				messageToUser.setText(session.getMessage());
 			}
 		});
 		btnInsertion.addMouseListener(new MouseAdapter() {
@@ -172,6 +176,7 @@ public class SortGUI extends JFrame implements ActionListener {
 				s = s + "\n\nSorted Array: \n" + sortedSeq.get(sortedSeq.size()-1);
 				numbers2.setText(s);
 				//ArrayList<String> msAL2 = session.merge();
+				messageToUser.setText(session.getMessage());
 			}
 		});
 		btnMerge.addMouseListener(new MouseAdapter() {
