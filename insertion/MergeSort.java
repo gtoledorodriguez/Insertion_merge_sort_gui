@@ -5,7 +5,7 @@ import insertion.Session;
 /**
  * 
  * @author Gladys
- * 
+ * help
  */
 public class MergeSort implements Values{
 	static ArrayList msAL = new ArrayList(); //Will make a function that returns an arrayList so we can print it out in the GUI
