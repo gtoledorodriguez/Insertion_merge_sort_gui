@@ -1,5 +1,4 @@
 package insertion;
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.awt.Point;
 import java.awt.Graphics;
@@ -37,8 +36,9 @@ public class SortGUI extends JFrame implements ActionListener {
 	// P A N e l
 	private JPanel panel;
 	// B U T T O N S
-	private JButton insertion;
-	private JButton merge;
+	private JButton btnInsertion;
+	private JButton btnMerge;
+	private JButton btnReset;
 	// Output messages to the user
 	private JLabel messageToUser;
 	private JTextArea numbers;
@@ -114,7 +114,7 @@ public class SortGUI extends JFrame implements ActionListener {
 		Color purple = new Color(221, 206, 239);
 		Color orange = new Color(247, 230, 197);
 		
-		JButton btnReset = new JButton("Reset");
+		btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				numbers.setText(session.getNumbers());
@@ -127,19 +127,19 @@ public class SortGUI extends JFrame implements ActionListener {
 		btnReset.setBackground(new Color(247, 204, 187));
 		panel.add(btnReset);
 		
-		insertion = new JButton();
-		insertion.addMouseListener(new MouseAdapter() {
+		btnInsertion = new JButton();
+		btnInsertion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				btnReset.setVisible(true);
 			}
 		});
-		insertion.setText("Insertion");
-		panel.add(insertion);
-		insertion.setBounds(239, 464, 100, 30);
-		insertion.setForeground(darkGray);
-		insertion.setBackground(red);
-		insertion.addActionListener(new ActionListener() {
+		btnInsertion.setText("Insertion");
+		panel.add(btnInsertion);
+		btnInsertion.setBounds(239, 464, 100, 30);
+		btnInsertion.setForeground(darkGray);
+		btnInsertion.setBackground(red);
+		btnInsertion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				ArrayList<int[]> sortedSeq = session.insertion();
 				String s = "";
@@ -153,13 +153,13 @@ public class SortGUI extends JFrame implements ActionListener {
 				}	
 			}
 		});
-		insertion.addMouseListener(new MouseAdapter() {
+		btnInsertion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				btnReset.setVisible(true);
 			}
 		});
-		JButton btnMerge = new JButton();
+		btnMerge = new JButton();
 		btnMerge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList sortedSeq = session.merge();
@@ -188,27 +188,11 @@ public class SortGUI extends JFrame implements ActionListener {
 		
 		
 		getContentPane().add(panel);
-		getRootPane().setDefaultButton(insertion);
+		getRootPane().setDefaultButton(btnInsertion);
 		panel.setVisible(true);
 	}
 	
 	public void actionPerformed(ActionEvent evt) {
-		/*
-		String command = evt.getActionCommand();
-		if (command.equals("Insertion")) {
-			ArrayList<int[]> sortedSeq = session.insertion();
-			String s = "";
-			for (int i = 0; i < sortedSeq.size(); i++) {
-				int[] n = sortedSeq.get(i);
-				
-				for (int j = 0; j < sortedSeq.get(i).length; j++) {
-					s = s + String.valueOf(n[j]);
-				}
-				s = s +"\n";
-				numbers2.setText(s);
-			}	
-		}
-		*/
 		repaint();
 	}
 	

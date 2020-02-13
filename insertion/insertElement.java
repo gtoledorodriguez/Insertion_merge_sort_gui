@@ -6,31 +6,34 @@ package insertion;
  */
 public class insertElement implements Values{
 	/**
-	 * insertElement 
+	 * Upon completion, values[0]..values[endIndex] are sorted.
 	 * @param startIndex
 	 * @param endIndex
 	 * @return values, the sorted array
 	 */
 	static int[] insertElement(int startIndex, int endIndex) {
-	// Upon completion, values[0]..values[endIndex] are sorted.
+		// finished keeps track of whether or not the array is done being sorted.
 		boolean finished = false;
+		// current is the current index that the algorithm is sorting from. Here it is set to the ending index.
 		int current = endIndex;
+		// moreToSearch keeps track of whether the algorithm should keep sorting or not.
 		boolean moreToSearch = true;
+		// This while loop iterates until it is finished sorting
 		while (moreToSearch && !finished) {
+			// If the current value is less than the last value, 
 			if (values[current] < values[current - 1]) {
+				// Then they are swapped
 				swap(current, current - 1);
+				// And the current index is subtracted by one
 				current--;
+				// As long as the current index is not the starting index, it will keep searching
 				moreToSearch = (current != startIndex);
 			}
+			// otherwise, it is finished sorting
 			else
 				finished = true;
 		}
-		/*
-		for (int i = 0; i < SIZE; i++) {
-			System.out.print(values[i]);
-		}
-		System.out.println();
-		*/
+		// Finally, the values array is returned
 		return values;
 	}
 	/**
