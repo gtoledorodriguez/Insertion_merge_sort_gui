@@ -9,7 +9,7 @@ import insertion.Session;
  */
 public class MergeSort implements Values{
 	static ArrayList msAL = new ArrayList(); //Will make a function that returns an arrayList so we can print it out in the GUI
-	public static ArrayList guiSort() {
+	public static ArrayList guiSort() {// This method will be called in the Session.java file which will sort the same values as insertion
 		MergeSort s = new MergeSort();
 		s.sort(values);
 		return s.getMerge();
@@ -33,12 +33,6 @@ public class MergeSort implements Values{
       }
       int j = 0;
       for(int i = m; i<arrL; i++){ // right arr will be from m+1 to arrL
-        /*
-        System.out.println("I: "+i);
-        System.out.println("J: "+j);
-        System.out.println("arr["+i+"] = " + arr[i]);
-        System.out.println();
-        */
         rightArr[j]=arr[i];
         j++;
       }
@@ -82,9 +76,9 @@ public class MergeSort implements Values{
     int[] b = new int[len];//creates a new temporary array
     int i = 0;
     int j = 0;
-    for(int k = 0; k<b.length; k++){ //Want to fill up the b arr
-      if (j>=r.length || (i<=(l.length-1) && l[i]<=r[j])){ //if j is greater than the len of r you want to use i to avoid error
-        b[k] = l[i];                                //if i is less than len of r, you can use i. checking the values of larr and rarr
+    for(int k = 0; k<b.length; k++){ //Want to fill up the b array
+      if (j>=r.length || (i<=(l.length-1) && l[i]<=r[j])){ //if j is greater than the length of r you want to use i to avoid error
+        b[k] = l[i];                                //if i is less than length of r, you can use i. checking the values of larr and rarr
         i++;                                        //will compare the values and return the smaller one
       }else{
         b[k] = r[j];
@@ -113,7 +107,7 @@ public class MergeSort implements Values{
     return b;
   }
   
-  public static ArrayList getMerge() {
+  public static ArrayList getMerge() { //This will return an arraylist filled with the steps done in the sort() and merge() methods
 	  return msAL;
   }
 
@@ -137,7 +131,7 @@ public class MergeSort implements Values{
     //int [] nums = {1,3,5,8,2,4,6,7};
     //int[] sorted = ms.sort(nums); //sorts the defined Set
     
-    ranNums = s.randomNumbers();
+    ranNums = s.randomNumbers(); //Creates an array of random numbers
     
     /*Shows what the unsorted array is and will add to arrayList
     //Prints out the unsorted array
@@ -184,13 +178,14 @@ public class MergeSort implements Values{
     }
     */
     
+    /* This was used to debug when my arrayList did not want to print out in the GUI
     Session session = new Session();
     ArrayList msAL2 = session.merge();
     System.out.println("\nArray List");
     for(int i = 0; i<msAL2.size();i++) {
     	System.out.println(msAL2.get(i));
     }
-    
+    */
     
   }
 }
