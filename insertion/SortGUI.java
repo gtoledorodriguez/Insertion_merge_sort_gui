@@ -1,14 +1,4 @@
 package insertion;
-/*import java.util.concurrent.TimeUnit;
-import java.awt.Point;
-import java.awt.Toolkit;
-import java.awt.event.MouseListener;
-import javax.swing.ImageIcon;
-import java.net.URL;
-import java.util.List;
-import java.net.URL;
-import javax.swing.ImageIcon;
-*/
 import java.awt.Graphics;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -25,7 +15,7 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 /**
- * 
+ * SortGUI implements the Graphical User Interface
  * @author grace
  * @author gladys
  *
@@ -43,46 +33,74 @@ public class SortGUI extends JFrame implements ActionListener {
 	private JButton btnReset;
 	// Output messages to the user
 	private JLabel messageToUser;
+	// numbers is the unsorted array of random values
 	private JTextArea numbers;
+	// numbers2 is where the sorted steps will be shown
 	private JTextArea numbers2;
+	// numbesr3 will make numbers2 scrollable
 	private JScrollPane numbers3;
+	// session is the current Session that is running
 	private Session session;
-	private String output;
-	private boolean inProgress;
-	public int[] rnumArray;
+	/**
+	 * Constructor
+	 * @param thisSession is the session that is running on this GUI
+	 */
 	public SortGUI(Session thisSession) {
+		// setting the session
 		session = thisSession;
-		output = session.getMessage();
-		inProgress = false;
+		// setting the GUI to close on exit
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		// initializing the display
 		initDisplay();
+		// repainting the display
 		repaint();
 	}
+	/**
+	 * display displays the pane
+	 */
 	public void display() {
+		// Making a new runnable event
 		java.awt.EventQueue.invokeLater(new Runnable() {
+			// Setting the pane visible
 			public void run()
 			{
 				setVisible(true);
 			}
 		});
 	}
+	
+	// Setting some colors to be used later
 	Color darkGray = new Color(139, 138, 140);
 	Color lightGray = new Color(186, 186, 186);
 	
+	/**
+	 * repaint() will repaint the pane every time it is called
+	 */
 	public void repaint() {
+		// This is the message that will be displayed to the user. It is called on the sesion
 		messageToUser = new JLabel(session.getMessage());
+		// Adding the message to the panel
 		panel.add(messageToUser);
-		messageToUser.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		// Setting the font
+		messageToUser.setFont(new Font("Tacoma", Font.BOLD, 20));
+		// Making it visible
 		messageToUser.setOpaque(true);
+		// Setting the font color
 		messageToUser.setForeground(Color.white);
+		// Setting the background color
 		messageToUser.setBackground(darkGray);
+		// Setting its position
 		messageToUser.setBounds(56, 424, 600, 30);
 		
+		// numbers is set to the random numbers array generated in Session
 		numbers = new JTextArea(session.getNumbers());
+		// Setting the font
 		numbers.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		// Making it visible
+		numbers.setOpaque(true);
 		panel.add(numbers);
 		numbers.setEditable(false);
-		numbers.setOpaque(true);
+		
 		numbers.setBounds(54, 41, 667, 46);
 		
 		JLabel lblUnsorted = new JLabel("Unsorted: ");

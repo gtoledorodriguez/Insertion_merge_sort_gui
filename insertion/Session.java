@@ -36,7 +36,7 @@ public class Session implements Values {
 	}
 	public ArrayList<int[]> insertion() {
 		ArrayList<int[]> sortedSeq = InsertionSort.insertionSort();
-		message = "Click to reset button to start again.";
+		message = "Click the reset button to start again.";
 		return sortedSeq;
 	}
 	public ArrayList merge() {
