@@ -72,6 +72,7 @@ public class SortGUI extends JFrame implements ActionListener {
 	// Setting some colors to be used later
 	Color darkGray = new Color(139, 138, 140);
 	Color lightGray = new Color(186, 186, 186);
+	Color red = new Color(247, 204, 187);
 	
 	/**
 	 * repaint() will repaint the pane every time it is called
@@ -94,93 +95,131 @@ public class SortGUI extends JFrame implements ActionListener {
 		
 		// numbers is set to the random numbers array generated in Session
 		numbers = new JTextArea(session.getNumbers());
+		// Adding the array to the panel
+		panel.add(numbers);
 		// Setting the font
 		numbers.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		// Making it visible
 		numbers.setOpaque(true);
-		panel.add(numbers);
-		numbers.setEditable(false);
-		
 		numbers.setBounds(54, 41, 667, 46);
+		// Making it not editable
+		numbers.setEditable(false);
+		// Setting its position
 		
+		// lblUnsorted is the label for the unsorted array
 		JLabel lblUnsorted = new JLabel("Unsorted: ");
-		lblUnsorted.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblUnsorted.setBounds(54, 10, 100, 41);
+		// Adding the label to the panel
 		panel.add(lblUnsorted);
+		// Setting the font
+		lblUnsorted.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		// Setting the position
+		lblUnsorted.setBounds(54, 10, 100, 41);
+		
+		// Making the empty numbers2 textArea
 		numbers2 = new JTextArea();
-		numbers2.setBounds(56, 99, 600, 281);
+		// Adding the textArea to the panel
 		panel.add(numbers2);
+		// Setting its position
+		numbers2.setBounds(56, 99, 600, 281);
+		// Making it not editable
 		numbers2.setEditable(false);
 		
+		// Making the scrollable pane
 		numbers3 = new JScrollPane(numbers2);
-		numbers3.setBounds(78, 99, 557, 281);
+		// Adding it to the panel
 		panel.add(numbers3);
+		// Setting its position
+		numbers3.setBounds(78, 99, 557, 281);
 		
-		
+		// Packing to make everything visible
 		pack();
 	}
+	/**
+	 * initDisplay() displays the initial display
+	 */
 	private void initDisplay() {
+		// panel is the frame
 		panel = new JPanel() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 			}
 		};
+		// Setting the layout and preferred size
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		
-		Color blue = new Color(190, 212, 247);
-		Color red = new Color(247, 204, 187);
-		Color green = new Color(198, 239, 215);
-		Color purple = new Color(221, 206, 239);
-		Color orange = new Color(247, 230, 197);
-		
+		// Making the reset button
 		btnReset = new JButton("Reset");
+		// Addint the action listener
 		btnReset.addActionListener(new ActionListener() {
+			// setting the event to be performed
 			public void actionPerformed(ActionEvent e) {
+				// getting the new random unsorted array
 				numbers.setText(session.getNumbers());
+				// emptying the TextArea
 				numbers2.setText("");
+				// getting the new message to the user
 				messageToUser.setText(session.getMessage());
 			}
 		});
+		// Making the reset button invisible in the initial display
 		btnReset.setVisible(false);
+		// Setting its position
 		btnReset.setBounds(314, 544, 85, 21);
-		btnReset.setForeground(new Color(139, 138, 140));
-		btnReset.setBackground(new Color(247, 204, 187));
+		// Setting the font color
+		btnReset.setForeground(darkGray);
+		// Setting the background color
+		btnReset.setBackground(red);
+		// Addint the button to the panel
 		panel.add(btnReset);
 		
+		// Making the insertion button
 		btnInsertion = new JButton();
+		// Addint a listener
 		btnInsertion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				// Upon clicking the insertion button, the reset button becomes visible
 				btnReset.setVisible(true);
 			}
 		});
+		// Setting the text
 		btnInsertion.setText("Insertion");
+		// Adding it to the panel
 		panel.add(btnInsertion);
+		// Setting its position
 		btnInsertion.setBounds(239, 464, 100, 30);
+		// Setting the font color
 		btnInsertion.setForeground(darkGray);
+		// Setting the background color
 		btnInsertion.setBackground(red);
+		// Adding the action listener
 		btnInsertion.addActionListener(new ActionListener() {
+			// The event to be performed
 			public void actionPerformed(ActionEvent evt) {
+				// sortedSeq is the ArrayList containing an array that represents each step in the insertion sort
+				// It is calculated in session
 				ArrayList<int[]> sortedSeq = session.insertion();
+				// s is the display string
 				String s = "";
+				// This runs through the sortedSeq array
 				for (int i = 0; i < sortedSeq.size(); i++) {
 					int[] n = sortedSeq.get(i);
+					// Adding each array
 					for (int j = 0; j < sortedSeq.get(i).length; j++) {
+						// Adding each value of each array 
 						s = s + String.valueOf(n[j]);
 					}
+					// New line after each array
 					s = s +"\n";
+					// Setting the text
 					numbers2.setText(s);
 				}	
+				// Updating the message to the user
 				messageToUser.setText(session.getMessage());
 			}
 		});
-		btnInsertion.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				btnReset.setVisible(true);
-			}
-		});
+		
 		btnMerge = new JButton();
 		btnMerge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -204,18 +243,19 @@ public class SortGUI extends JFrame implements ActionListener {
 			}
 		});
 		btnMerge.setText("Merge");
-		btnMerge.setForeground(new Color(139, 138, 140));
-		btnMerge.setBackground(new Color(247, 204, 187));
+		btnMerge.setForeground(darkGray);
+		btnMerge.setBackground(red);
 		btnMerge.setBounds(366, 464, 100, 30);
 		panel.add(btnMerge);
 		
-		
+		// Adding the panel to the content pane
 		getContentPane().add(panel);
 		getRootPane().setDefaultButton(btnInsertion);
+		// Setting the panel visible
 		panel.setVisible(true);
 	}
-	
 	public void actionPerformed(ActionEvent evt) {
+		// repaint the panel
 		repaint();
 	}
 	

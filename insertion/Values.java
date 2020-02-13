@@ -6,7 +6,7 @@ package insertion;
  */
 public interface Values {
 	// Global variable SIZE is the size of the array to be sorted
-	int SIZE = 10;
+	int SIZE = 100;
 	// Global variable values is the array of values to be sorted
 	int[] values = new int[SIZE];
 }
