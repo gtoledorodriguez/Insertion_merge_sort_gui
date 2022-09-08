@@ -72,6 +72,7 @@ public class MergeSort implements Values{
 
     return merge(ls, rs);//calls the merge method
   }
+  
   public static int[] merge(int[] l,int[] r){//This will merge the left and right arrays
     int len = l.length+r.length;
     int[] b = new int[len];//creates a new temporary array
